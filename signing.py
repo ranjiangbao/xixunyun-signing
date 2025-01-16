@@ -1,6 +1,8 @@
 import requests  # 导入requests库，用于发送HTTP请求
 import json  # 导入json库，用于处理JSON数据
 import time   # 导入time库，用于时间控制
+import smtplib  # 导入smtplib库，用于发送邮件
+from em import sent_email  
 
 #习讯云签到脚本
 import datetime
@@ -60,4 +62,7 @@ else:
       sign_request=requests.post(url=sign_url,data=sign_data,headers=login_header)
       sign=json.loads(sign_request.text)
       print(sign)
+      sent_email()
+
+
 
